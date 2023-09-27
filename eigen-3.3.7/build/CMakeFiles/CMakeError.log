@@ -1,0 +1,174 @@
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshorten64to32 failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dd7b8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dd7b8.dir/build.make CMakeFiles/cmTC_dd7b8.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dd7b8.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wshorten64to32 -Werror   -Wshorten-64-to-32 -o CMakeFiles/cmTC_dd7b8.dir/src.cxx.o -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wshorten-64-to-32'
+CMakeFiles/cmTC_dd7b8.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_dd7b8.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_dd7b8.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_dd7b8/fast' failed
+make: *** [cmTC_dd7b8/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wenumconversion failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f39a4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f39a4.dir/build.make CMakeFiles/cmTC_f39a4.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f39a4.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wenumconversion -Werror   -Wenum-conversion -o CMakeFiles/cmTC_f39a4.dir/src.cxx.o -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wenum-conversion'; did you mean '-Wno-conversion'?
+CMakeFiles/cmTC_f39a4.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_f39a4.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_f39a4.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f39a4/fast' failed
+make: *** [cmTC_f39a4/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcpp11extensions failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4a556/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4a556.dir/build.make CMakeFiles/cmTC_4a556.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4a556.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wcpp11extensions -Werror   -Wc++11-extensions -o CMakeFiles/cmTC_4a556.dir/src.cxx.o -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wc++11-extensions'; did you mean '-fms-extensions'?
+CMakeFiles/cmTC_4a556.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4a556.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_4a556.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4a556/fast' failed
+make: *** [cmTC_4a556/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd981 failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ec80c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ec80c.dir/build.make CMakeFiles/cmTC_ec80c.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ec80c.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd981 -Werror   -wd981 -o CMakeFiles/cmTC_ec80c.dir/src.cxx.o -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd981'
+CMakeFiles/cmTC_ec80c.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_ec80c.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_ec80c.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ec80c/fast' failed
+make: *** [cmTC_ec80c/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd2304 failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dcf94/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dcf94.dir/build.make CMakeFiles/cmTC_dcf94.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dcf94.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd2304 -Werror   -wd2304 -o CMakeFiles/cmTC_dcf94.dir/src.cxx.o -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd2304'
+CMakeFiles/cmTC_dcf94.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_dcf94.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_dcf94.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_dcf94/fast' failed
+make: *** [cmTC_dcf94/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_STRICTANSI failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8db70/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8db70.dir/build.make CMakeFiles/cmTC_8db70.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_8db70.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_STRICTANSI -Werror   -strict-ansi -o CMakeFiles/cmTC_8db70.dir/src.cxx.o -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-strict-ansi'; did you mean '-fstrict-enums'?
+CMakeFiles/cmTC_8db70.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8db70.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_8db70.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_8db70/fast' failed
+make: *** [cmTC_8db70/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Qunusedarguments failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4b0ca/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4b0ca.dir/build.make CMakeFiles/cmTC_4b0ca.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_4b0ca.dir/src.cxx.o
+/usr/bin/c++    -std=c++03 -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_Qunusedarguments -Werror   -Qunused-arguments -o CMakeFiles/cmTC_4b0ca.dir/src.cxx.o -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Qunused-arguments'; did you mean '-Wunused-parameter'?
+CMakeFiles/cmTC_4b0ca.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4b0ca.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_4b0ca.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_4b0ca/fast' failed
+make: *** [cmTC_4b0ca/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_85433/fast"
+/usr/bin/make -f CMakeFiles/cmTC_85433.dir/build.make CMakeFiles/cmTC_85433.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_85433.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_85433.dir/CheckSymbolExists.c.o   -c /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_85433
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85433.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_85433.dir/CheckSymbolExists.c.o  -o cmTC_85433 
+CMakeFiles/cmTC_85433.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_85433.dir/build.make:97: recipe for target 'cmTC_85433' failed
+make[1]: *** [cmTC_85433] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_85433/fast' failed
+make: *** [cmTC_85433/fast] Error 2
+
+File /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_66523/fast"
+/usr/bin/make -f CMakeFiles/cmTC_66523.dir/build.make CMakeFiles/cmTC_66523.dir/build
+make[1]: Entering directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_66523.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_66523.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_66523
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_66523.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_66523.dir/CheckFunctionExists.c.o  -o cmTC_66523 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_66523.dir/build.make:97: recipe for target 'cmTC_66523' failed
+make[1]: *** [cmTC_66523] Error 1
+make[1]: Leaving directory '/home/sinofairy/workroot/SlamParse/eigen-3.3.7/build/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_66523/fast' failed
+make: *** [cmTC_66523/fast] Error 2
+
+

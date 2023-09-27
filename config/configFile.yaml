@@ -1,0 +1,42 @@
+rotateDeg1: -1.0471975511965976
+rotateDeg2: -2.0943951023931953
+rotateDeg3: -3.141592653589793
+rotateDeg4: 2.0943951023931953
+rotateDeg5: 1.0471975511965976
+
+K: [337.2084410968044, 0.0, 320.5, 
+        0.0, 337.2084410968044, 240.5, 
+        0.0, 0.0, 1.0]
+R0: [0, 1.0, 0, 
+        0.0, 0, 1, 
+        1.0, 0.0, 0.0]
+T0: [0,
+     0.56,
+     0.0]
+ImageRowIncrease: 2
+ImageColIncrease: 4
+cameraRealiableDis: 8 
+skyColor: 178
+pointCloudLeafSize: 0.5
+farPointThresh: 100
+closePointThresh: 0.1
+
+mapSave: true
+mapSaveLocation: "./data/laserCloudMap.pcd"
+odomKeyFramDisThresh: 0.1
+InvalidColorThresh: 60
+useICP: true #false
+IcpMaxCorrespondenceDistance: 50
+IcpMaximumIterations: 100
+IcpTransformationEpsilon: 1e-5
+IcpEuclideanFitnessEpsilon: 0.01
+IcpFitnessScoreThresh: 30
+useNDT: false #true
+ndtTransformationEpsilon: 0.01
+ndtResolution: 1.0
+ndtFitnessScoreThresh: 0.3
+
+x_distance_per_pixel: 4
+y_distance_per_pixel: 4
+
+time_thres: 1e-7
