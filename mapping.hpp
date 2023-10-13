@@ -56,6 +56,8 @@ std::map<int,int> MosMap;
 #define MAX_POINTSETS_NUM    1024
 // #define MAX_PARKSLOTS_NUM     14
 #define ContourNum 20
+#define psd_delta_x 150
+#define psd_delta_y 150
 /*定义保存车位点集的新结构体，与原有车位输出位置一致*/
 typedef struct
 {
@@ -104,6 +106,24 @@ typedef struct _ContourList
     uint32_t num;
     Contour contours[ContourNum];
 } ContourList;
+
+typedef struct _Point2D
+{
+    float x;
+    float y;
+} Point2D;
+
+typedef struct _PsdValue
+{
+    int num = 0; //psd num
+    int cls_type;
+    bool counted = false;
+    std::vector<std::vector<PointType>> psd_local_points;
+    std::vector<Point2D> psd_local_center;
+}PsdValue;
+
+std::map<int,PsdValue> PsdSet;
+std::vector<Point2D> psd_local_mean_center;
 
 void getPointSet(tInvoMosObjList * mosObjects, ContourList *contours);
 
@@ -218,51 +238,149 @@ void TransVihcle2World(OdomData* OdoData,
             //     continue;
             // }
             // MosPool.push_back(Pkey);
-            if(PsdMap.count(Pkey) == 0)
+            float temp_x =0;
+            float temp_y =0;
+            for(int k = 0; k < 4; k++)
             {
-                PsdMap[Pkey] = 1;
+                temp_x += stPsdData->parkslots[i].image_info.box_point[k].x;
+                temp_y += stPsdData->parkslots[i].image_info.box_point[k].y;
             }
-            else if (PsdMap[Pkey] > 30)
+            temp_x /= 4;
+            temp_y /= 4;
+
+            float image_center_x = temp_x * 4 - 640;
+            float image_center_y = 640 - temp_y * 4;
+            float image_center_z = 0;
+
+            Eigen::Vector4d image_point_curr(image_center_x, image_center_y, image_center_z, 1);
+            //std::cout << "point_curr: " << point_curr.transpose() << std::endl;
+            Eigen::Vector4d center_point_w = OdoData->pose * image_point_curr;
+            //std::cout << "OdoData->pose: " << OdoData->pose.transpose() << std::endl;
+            //std::cout << "point_w: " << point_w.transpose() << std::endl;
+            // map_point.x = center_point_w[0];
+            // map_point.y = center_point_w[1];
+            // map_point.z = center_point_w[2];
+            Point2D center;
+            center.x = center_point_w[0];
+            center.y = center_point_w[1];
+
+
+            if(PsdSet.count(Pkey) == 0)
             {
-                continue;
+                PsdSet[Pkey].num = 1;
+                PsdSet[Pkey].counted = true;
             }
+            // else if (PsdMap[Pkey] > 30)
+            // {
+            //     continue;
+            // }
             else
             {
-                PsdMap[Pkey] += 1;
+                PsdSet[Pkey].num += 1;
+                PsdSet[Pkey].counted = true;
             }
+            
+            PsdSet[Pkey].cls_type = ps_type;
+            PsdSet[Pkey].psd_local_center.push_back(center);
+            std::vector<PointType> local_points;
 
-            if(PsdMap[Pkey] % 3 == 1)
+            for (int j = 0; j < PointNum; j++)
             {
-                for (int j = 0; j < PointNum; j++)
-                {
-                    // image coords to vehicle coords
-                    int x = ps.point_set[j].x * 4 - 640;
-                    int y = 640 - ps.point_set[j].y * 4;
-                    int z = 0;
+                // image coords to vehicle coords
+                int x = ps.point_set[j].x * 4 - 640;
+                int y = 640 - ps.point_set[j].y * 4;
+                int z = 0;
 
-                    Eigen::Vector4d point_curr(x, y, z, 1);
-                    //std::cout << "point_curr: " << point_curr.transpose() << std::endl;
-                    Eigen::Vector4d point_w = OdoData->pose * point_curr;
-                    //std::cout << "OdoData->pose: " << OdoData->pose.transpose() << std::endl;
-                    //std::cout << "point_w: " << point_w.transpose() << std::endl;
-                    map_point.x = point_w[0];
-                    map_point.y = point_w[1];
-                    map_point.z = point_w[2];
+                Eigen::Vector4d point_curr(x, y, z, 1);
+                //std::cout << "point_curr: " << point_curr.transpose() << std::endl;
+                Eigen::Vector4d point_w = OdoData->pose * point_curr;
+                //std::cout << "OdoData->pose: " << OdoData->pose.transpose() << std::endl;
+                //std::cout << "point_w: " << point_w.transpose() << std::endl;
+                map_point.x = point_w[0];
+                map_point.y = point_w[1];
+                map_point.z = point_w[2];
 
-                    double dis = sqrt(map_point.x * map_point.x + map_point.y * map_point.y);
-                    if (dis > cameraRealiableDis)
-                        //continue;
+                double dis = sqrt(map_point.x * map_point.x + map_point.y * map_point.y);
+                if (dis > cameraRealiableDis)
+                    //continue;
 
-                    map_point.r = ps_label_map[ps_type].red;
-                    map_point.g = ps_label_map[ps_type].green;
-                    map_point.b = ps_label_map[ps_type].blue;
+                map_point.r = ps_label_map[ps_type].red;
+                map_point.g = ps_label_map[ps_type].green;
+                map_point.b = ps_label_map[ps_type].blue;
 
-                    cameraCloud.push_back(map_point);
-                }
+                local_points.push_back(map_point);
             }
+            PsdSet[Pkey].psd_local_points.push_back(local_points);
+            std::vector<PointType>().swap(local_points);
         }
 
     }
+
+    std::map<int,PsdValue>::iterator iter;
+    std::vector<int> handled_index;
+    for(iter = PsdSet.begin(); iter != PsdSet.end(); iter++) 
+    {
+        //cout << iter->first << " : " << iter->second << endl;
+        float centerx = 0;
+        float centery = 0;
+        if(!iter->second.counted)
+        {
+            for(int m = 0; m < iter->second.psd_local_center.size(); m++)
+            {
+                centerx += iter->second.psd_local_center[m].x;
+                centery += iter->second.psd_local_center[m].y;
+            }
+            centerx /= iter->second.num;
+            centery /= iter->second.num;
+            bool samilar = false;
+            for(int n = 0; n < psd_local_mean_center.size(); n++)
+            {
+                if((abs(psd_local_mean_center[n].x - centerx) < psd_delta_x)&&
+                   (abs(psd_local_mean_center[n].y - centery) < psd_delta_y))
+                  {
+                    samilar = true;
+                  }
+            }
+            if(!samilar)
+            {
+                Point2D temp_center;
+                temp_center.x = centerx;
+                temp_center.y = centery;
+                psd_local_mean_center.push_back(temp_center);
+
+                int middle = iter->second.psd_local_center.size() / 2;
+                float delta_x = iter->second.psd_local_center[middle].x -centerx;
+                float delta_y = iter->second.psd_local_center[middle].y -centery;
+
+                // for(int m = 0; m < iter->second.psd_local_points.size(); m += 3){}
+                
+                for(int n = 0; n < iter->second.psd_local_points[middle].size(); n++)
+                {
+                    iter->second.psd_local_points[middle][n].x -= delta_x;
+                    iter->second.psd_local_points[middle][n].y -= delta_y;
+                    cameraCloud.push_back(iter->second.psd_local_points[middle][n]);
+                }
+                //int num = myMap.erase
+                handled_index.push_back(iter->first);   
+                std::cout << "centerx: " << centerx << std::endl;
+                std::cout << "centery: " << centery << std::endl;
+                std::cout << "iter->first: " << iter->first << std::endl; 
+                std::cout << "cameraCloud.size(): " << cameraCloud.size() << std::endl;
+            }        
+        }
+        else
+        {
+            iter->second.counted = false;
+        }
+    }
+    for(int m = 0; m < handled_index.size(); m++) 
+    {
+        std::cout << "handled_index[m]: " << handled_index[m] <<std::endl;
+        int nn = PsdSet.erase(handled_index[m]);
+    }
+    //handled_index.clear();
+    //handled_index.swap(std::vector<int>());
+    std::vector<int>().swap(handled_index);
     
 }
 

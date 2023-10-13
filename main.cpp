@@ -39,7 +39,7 @@ int main()
     double farPointThresh = config["farPointThresh"].as<double>();
     double closePointThresh = config["closePointThresh"].as<double>();
 
-	boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer1(new pcl::visualization::PCLVisualizer("3D Viewer"));
+	//boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer1(new pcl::visualization::PCLVisualizer("3D Viewer"));
 
     
 	FILE* inOdomFile = fopen("./data/odom/NOR_20230309_060320_M_00001/imagePose.txt", "rb");
@@ -223,7 +223,7 @@ int main()
         double dis = (currentX - lastPoseX) * (currentX - lastPoseX) + (currentY - lastPoseY) * (currentY - lastPoseY) + (currentZ - lastPoseZ) * (currentZ - lastPoseZ);
         frameCount++;
         std::cout << "dis: " << dis << std::endl;
-        if (dis > odomKeyFramDisThresh || frameCount >= 7)
+        if (dis > odomKeyFramDisThresh || frameCount >= 1)
         {
             *globalFeatureCloud = *globalFeatureCloud + *currentFeatureCloud;
             pcl::PointCloud<PointType> globalMapDS;
@@ -245,15 +245,16 @@ int main()
 			pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
 			// 定义读取对象
 			pcl::PCDReader reader;
-			saveMap_callback(mapSave);
+			//if(!globalMap->empty ())
+			// saveMap_callback(mapSave);
  
-			// 读取点云文件
-			reader.read<pcl::PointXYZ> ("./data/icpLaserCloud.pcd", *cloud);
+			// // 读取点云文件
+			// reader.read<pcl::PointXYZ> ("./data/icpLaserCloud.pcd", *cloud);
 
-			viewer1->removeAllPointClouds();  // 移除当前所有点云
-			viewer1->addPointCloud(cloud, "test");  
-			viewer1->updatePointCloud(cloud, "test"); 
-			viewer1->spinOnce(0.0000000000001);
+			// viewer1->removeAllPointClouds();  // 移除当前所有点云
+			// viewer1->addPointCloud(cloud, "test");  
+			// viewer1->updatePointCloud(cloud, "test"); 
+			// viewer1->spinOnce(0.0000000000001);
 			//viewer1->showCloud(globalFeatureCloud);
 
             frameCount = 0;
